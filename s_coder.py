@@ -1,31 +1,38 @@
 """shift coder"""
 
 
-def s_encoder(msg, n=3):
+from typing import Optional
+
+
+def s_encoder(msg: str, shift_order: int = 3) -> str:
     """Encodes user message into ascii numbers and adds to encode
 
     Parameters:
 
-    msg (str): user message
-    n (int): shift value 1 - 5 (3 -> default)
+    msg: user message
+    shift_order: 1 - 10 (default=3)
 
     Returns:
 
     str: encoded message"""
 
-    return '.'.join([str(ord(char)+n) for char in msg])
+    return '.'.join([str(ord(char)+shift_order) for char in msg.strip()])
 
 
-def s_decoder(msg, n=3):
+def s_decoder(msg: str, shift_order: int = 3) -> str:
     """Decodes user message of encoded with three's encoder
 
     Parameters:
 
-    msg (str): user message
-    n (int): shift value 1 - 5 (3 -> default)
+    msg: user message
+    shift_order: 1 - 10 (default=3)
 
     Returns:
 
     str: decoded message"""
 
-    return ''.join(chr(int(char)-n) for char in msg.split('.'))
+    # condition checked in app.py
+    # if shift_order not in range(1, 11):
+    #     shift_order = 3
+
+    return ''.join(chr(int(char)-shift_order) for char in msg.strip().split('.'))

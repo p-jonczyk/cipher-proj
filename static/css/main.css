@@ -1,0 +1,110 @@
+body {
+    background-color: rgba(84, 96, 107, 0.712);
+    text-align: center;
+
+}
+
+p {
+    color: white;
+    font-family: Shanti;
+    font-size: 1.2em;
+    margin: 10px;
+}
+
+#page_title{
+    font-size: 4em;
+    letter-spacing: 3px;
+}
+
+
+img {
+    margin: 60px -350px 30px 0;
+    width: 150px;
+    height: 250spx;
+}
+
+textarea{
+    width: 600px;
+    height: 300px;
+    margin: 20px;
+    border: none;
+    outline: 0;
+    border-radius: 10px;
+    font-family: Shanti;
+    font-size: 1.3em;
+    resize: none;
+    padding: 0.4em 0.4em 0.4em 0;
+    flex-wrap: wrap;
+}
+
+textarea:focus{
+    border: solid 5px rgb(158, 185, 235);
+}
+
+input{
+    background-color: palevioletred;
+    color: white;
+    width: 200px;
+    height: 40px;
+    margin: 20px;
+    border: none;
+    border-radius: 10px;
+    font-family: Shanti;
+    text-align: center;
+    font-size: 1.3em;
+
+}
+
+input:focus{
+    border: solid 5px rgb(158, 185, 235);
+    outline: none;
+}
+#encode:hover {
+    background-color: mediumvioletred;
+    cursor: pointer;
+}
+
+#decode:hover {
+    background-color: mediumvioletred;
+    cursor: pointer;
+}
+
+#shift_order{
+    background-color: white;
+    color: black;
+}
+
+li{
+    background-color: palevioletred;
+    width: 100px;
+    height: 30px;
+    margin: 10px;
+    border: none;
+    border-radius: 10px;
+    list-style-type: none;
+    float: right;
+    text-align: center;
+    padding-top: 7px;
+}
+li:hover{
+    background-color: mediumvioletred;
+    cursor: pointer
+}
+
+a{
+    text-decoration: none;
+    font-family: Shanti;
+    text-align: center;
+    font-size: 1.1em;
+    color: white;
+}
+
+#made_by{
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    z-index: 998;
+    margin-left: 10px;
+    /* width: 50%; */
+    font-size: x-small
+}

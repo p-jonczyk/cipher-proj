@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Cipher</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+
+<body>
+    <ul>
+        <li><a name="git" href="https://github.com/p-jonczyk">GIT</a></li>
+        <li><a name="binary" href="/">BINARY</a></li>
+        <li><a name="shift" href="/shift">SHIFT</a></li>
+    </ul>
+    <br>
+    <img src="https://openclipart.org/image/800px/303611">
+    <br>
+    <p id="page_title">BINARY CIPHER</p>
+    <form action="binary" method="POST">
+        <br>
+        <textarea name="msg_input" id="msg_input"
+            placeholder="Type your message to be encoded/decoded here..."></textarea>
+        <textarea readonly name="msg_output"
+            id="msg_output">{% for message in get_flashed_messages() %}{{message}}{% endfor %}</textarea>
+        <br>
+        <input type="submit" name="submit_button" value="ENCODE" id="encode">
+        <input type="submit" name="submit_button" value="DECODE" id="decode">
+
+    </form>
+    <p id="made_by">Made by Paweł Jonczyk</p>
+</body>
+
+</html>
