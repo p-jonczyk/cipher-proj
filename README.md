@@ -18,3 +18,6 @@ The purpose of project was to learn basics of mentioned tools.
 **2. SHIFT (Caesar)** -> takes user input, change each of characters into its ascii representation and adds to each of them given **shift order** (from range 1 - 10 *default=3*) *(file -> s_coder.py)*
 <br />
 
+**3. STEGANOGRAPHY** -> takes user input and encodes it into image uploaded by user. To encode/decode *stegano* module were used. *(file -> i_coder.py)*
+Used method - LSB *(Least Significant Bit)* *https://pypi.org/project/stegano/*
+<br />

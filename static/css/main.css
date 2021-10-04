@@ -59,12 +59,7 @@ input:focus{
     border: solid 5px rgb(158, 185, 235);
     outline: none;
 }
-#encode:hover {
-    background-color: mediumvioletred;
-    cursor: pointer;
-}
-
-#decode:hover {
+input:hover{
     background-color: mediumvioletred;
     cursor: pointer;
 }
@@ -72,6 +67,20 @@ input:focus{
 #shift_order{
     background-color: white;
     color: black;
+}
+
+input[type='file']{
+    display: inline-block;
+    width: 300px;
+    padding: 120px 0 0 0;
+    height: 100px;
+    overflow: hidden;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    background: url('https://cdn1.iconfinder.com/data/icons/hawcons/32/698394-icon-130-cloud-upload-512.png') center center no-repeat #e4e4e4;
+    border-radius: 10px;
+    background-size: 60px 60px;
 }
 
 li{
@@ -97,6 +106,8 @@ a{
     text-align: center;
     font-size: 1.1em;
     color: white;
+    width: 100px;
+    height: 30px;
 }
 
 #made_by{
@@ -107,4 +118,19 @@ a{
     margin-left: 10px;
     /* width: 50%; */
     font-size: x-small
+}
+
+h3{
+    color: white;
+    font-family: Shanti;
+    font-size: 1.4em;
+    margin: 10px;
+}
+
+
+#uploaded_image{
+    width: 600px;
+    height: 300px;
+    margin: 20px;
+    outline: 0;
 }

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Cipher</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+
+<body>
+    <ul>
+        <li><a name="git" href="https://github.com/p-jonczyk">GIT</a></li>
+        <li><a name="binary" href="/">BINARY</a></li>
+        <li><a name="shift" href="/shift">SHIFT</a></li>
+    </ul>
+    <br>
+    <img src="https://openclipart.org/image/800px/303611">
+    <br>
+    <p id="page_title">STEGANOGRAPHY</p>
+    <h3 id="img_title">Encode message into image</h3>
+    <br>
+    <form method="post" action="{{ url_for('upload_image') }}" enctype="multipart/form-data">
+        <input type="file" id="file" name="file" autocomplete="off" required>
+        <br>
+        <p id="img_response">
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+
+            {% for message in messages %}
+            {{ message }}
+            {% endfor %}
+
+            {% endif %}
+            {% endwith %}
+        </p>
+        <input type="submit" value="SUBMIT" name="submit_button">
+    </form>
+    <p id="made_by">Made by Paweł Jonczyk</p>
+</body>
+
+</html>
