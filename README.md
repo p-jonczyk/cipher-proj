@@ -1,6 +1,5 @@
-## INSTALATION
+## INSTALLATION
 **pip install -r requirements.txt**  
-<br />
 <br />
 
 ## ABOUT
@@ -21,3 +20,11 @@ The purpose of project was to learn basics of mentioned tools.
 **3. STEGANOGRAPHY** -> takes user input and encodes it into image uploaded by user. To encode/decode *stegano* module were used. *(file -> i_coder.py)*
 Used method - LSB *(Least Significant Bit)* *https://pypi.org/project/stegano/*
 <br />
+
+## HOW TO
+1. Download project / clone git. 
+2. Open *cmd/powershell* with project's directory.
+3. Make sure you made **INSTALLATION** step.
+4. Command: *flask run* 
+5. Open shown address.
+6. Play around
