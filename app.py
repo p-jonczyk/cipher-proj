@@ -2,14 +2,12 @@ from PIL.Image import EXTENSION
 from flask import Flask, render_template, request, flash, redirect, url_for
 import time
 import os
-import shutil
 from flask.app import _make_timedelta
 from werkzeug.utils import secure_filename
 import s_coder
 import b_coder
 import i_coder
 import const
-import glob
 
 app = Flask(__name__)
 # should be secret but it's just for learning purpose

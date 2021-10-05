@@ -1,2 +1,14 @@
-flask
-stegano
+autopep8==1.5.7
+click==8.0.1
+colorama==0.4.4
+crayons==0.4.0
+Flask==2.0.2
+itsdangerous==2.0.1
+Jinja2==3.0.2
+MarkupSafe==2.0.1
+piexif==1.1.3
+Pillow==8.3.2
+pycodestyle==2.7.0
+stegano==0.9.9
+toml==0.10.2
+Werkzeug==2.0.1
