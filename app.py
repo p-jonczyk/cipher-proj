@@ -13,7 +13,7 @@ import glob
 
 app = Flask(__name__)
 # should be secret but it's just for learning purpose
-app.secret_key = "password123"
+app.secret_key = const.SECRET_KEY
 app.config['UPLOAD_FOLDER'] = 'static/uploads'
 
 
@@ -42,6 +42,16 @@ def encode_img_img():
 @app.route('/image_encoder_save')
 def encode_img_save():
     return render_template('/image_encoder_save.html')
+
+
+@app.route('/image_decoder')
+def decode_img():
+    return render_template('/image_decoder.html')
+
+
+@app.route('/image_decoder_img')
+def decode_img_img():
+    return render_template('/image_decoder_img.html')
 #####################################################################
 
 # SHIFT CODER
@@ -85,18 +95,10 @@ def binary():
 # IMAGE ENCODER -  STEGANOGRAPHY
 
 
-def allowed_file(filename):
-    return '.' in filename and filename.rsplit('.', 1)[1].lower() in const.encode_allow_extensions
-
-
 @app.route('/image_encoder', methods=['POST', 'GET'])
 def upload_image():
     # clean after previous encoding
-    filearr = os.listdir('./static/uploads/')
-    for file in filearr:
-        filepath = f'./static/uploads/{file}'
-        os.remove(filepath)
-        print('remove')
+    i_coder.clean_uploads()
 
     if 'file' not in request.files:
         flash('No file part')
@@ -105,7 +107,7 @@ def upload_image():
     if file.filename == '':
         flash('No image selected for uploading')
         return redirect(request.url)
-    elif file and allowed_file(file.filename):
+    elif file and i_coder.allowed_file(file.filename, 'encoder'):
         filename = secure_filename(file.filename)
         file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
         return render_template('image_encoder_img.html', filename=filename)
@@ -127,7 +129,42 @@ def image_encode():
         return render_template("image_encoder_save.html", filename=new_filename)
 
 
+# IMAGE DECODER
+
+@app.route('/image_decoder', methods=['POST', 'GET'])
+def upload_image_decoder():
+    # clean after previous decoding
+    i_coder.clean_uploads()
+
+    if 'file' not in request.files:
+        flash('No file part')
+        return redirect(request.url)
+    file = request.files['file']
+    if file.filename == '':
+        flash('No image selected for uploading')
+        return redirect(request.url)
+    elif file and i_coder.allowed_file(file.filename, 'decoder'):
+        filename = secure_filename(file.filename)
+        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        return render_template('image_decoder_img.html', filename=filename)
+    else:
+        flash('Allowed image type is: .png')
+        return redirect(request.url)
+
+
+@app.route('/image_decoder_img', methods=['POST', 'GET'])
+def image_decode():
+    if request.form['submit_button'] == "DECODE":
+        filearr = os.listdir('./static/uploads/')
+        filepath = f'./static/uploads/{filearr[0]}'
+        msg = i_coder.i_decoder(filepath)
+        os.remove(filepath)
+        flash(msg)
+        return render_template("image_decoder_img.html")
+
 # IMAGE DISPLAY
+
+
 @app.route('/display/<filename>', methods=['POST', 'GET'])
 def display_image(filename):
     return redirect(url_for('static', filename='uploads/' + filename), code=301)

@@ -23,18 +23,17 @@
     <br>
     <img id="logo" src="https://openclipart.org/image/800px/303611">
     <p id="page_title">STEGANOGRAPHY</p>
+    <h3 id="img_title">Decode message from image</h3>
     <br>
-    <h3 id="img_title">Press right-mouse button on image and download.</h3>
-    <h3>(Save image as...)</h3>
-    <br>
-    <br>
-    <form method="post" action="image_encoder_save">
+    <form method="post" action="image_decoder_img">
+        <textarea readonly name="msg_output"
+            id="msg_output">{% for message in get_flashed_messages() %}{{message}}{% endfor %}</textarea>
         {% if filename %}
         <img id="uploaded_image" src="{{ url_for('display_image', filename=filename) }}">
         {% endif %}
+        <br>
+        <input type="submit" name="submit_button" value="DECODE" id="encode">
     </form>
-
-
     <p id="made_by">Made by Paweł Jonczyk</p>
 </body>
 

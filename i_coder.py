@@ -2,9 +2,10 @@
 
 # stegano use - no polish characters --- .jpg returns binary string. (b'string') use decode()
 
-from os import path, remove
+from os import path, remove, listdir
 from stegano import lsb
 from PIL import Image
+import const
 
 
 def i_encoder(img_path: str, msg: str) -> None:
@@ -48,4 +49,28 @@ def i_decoder(img_path: str) -> str:
     encoded message"""
 
     decoded_img = lsb.reveal(img_path)
+
     return decoded_img
+
+
+def clean_uploads() -> None:
+    """Clears ./static/uploads before uploading new file"""
+    filearr = listdir('./static/uploads/')
+    for file in filearr:
+        filepath = f'./static/uploads/{file}'
+        remove(filepath)
+
+
+def allowed_file(filename: str, coder_type: str) -> bool:
+    """Checks if file with allowed extension
+
+    Parameters:
+
+    filename: path of file
+
+    coder_type: 'decoder' or 'encoder' """
+
+    if coder_type == 'decoder':
+        return '.' in filename and filename.rsplit('.', 1)[1].lower() in const.decode_allow_extensions
+    elif coder_type == 'encoder':
+        return '.' in filename and filename.rsplit('.', 1)[1].lower() in const.encode_allow_extensions

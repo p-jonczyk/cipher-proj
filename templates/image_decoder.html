@@ -15,6 +15,7 @@
             <div class="dropdown-content">
                 <a name="ENCODER" href="/image_encoder">ENCODER</a>
                 <a name="DECODER" href="/image_decoder">DECODER</a>
+
             </div>
         </div>
         <li><a name="binary" href="/">BINARY</a></li>
@@ -23,18 +24,24 @@
     <br>
     <img id="logo" src="https://openclipart.org/image/800px/303611">
     <p id="page_title">STEGANOGRAPHY</p>
+    <h3 id="img_title">Decode message form image</h3>
     <br>
-    <h3 id="img_title">Press right-mouse button on image and download.</h3>
-    <h3>(Save image as...)</h3>
-    <br>
-    <br>
-    <form method="post" action="image_encoder_save">
-        {% if filename %}
-        <img id="uploaded_image" src="{{ url_for('display_image', filename=filename) }}">
-        {% endif %}
+    <form method="post" action="{{ url_for('upload_image_decoder') }}" enctype="multipart/form-data">
+        <input type="file" id="file" name="file" autocomplete="off" required>
+        <br>
+        <p id="img_response">
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+
+            {% for message in messages %}
+            {{ message }}
+            {% endfor %}
+
+            {% endif %}
+            {% endwith %}
+        </p>
+        <input type="submit" value="SUBMIT" name="submit_button">
     </form>
-
-
     <p id="made_by">Made by Paweł Jonczyk</p>
 </body>
 

@@ -18,9 +18,14 @@ p {
 
 
 img {
-    margin: 60px -350px 30px 0;
+    margin: 60px -500px 30px 0;
+    /* margin: 60px 0 30px 0; */
     width: 150px;
-    height: 250spx;
+}
+#logo{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 textarea{
@@ -110,6 +115,7 @@ a{
     height: 30px;
 }
 
+
 #made_by{
     position: fixed;
     bottom: 0;
@@ -134,3 +140,66 @@ h3{
     margin: 20px;
     outline: 0;
 }
+
+
+
+/* Dropdown Button */
+
+.dropbtn {
+    background-color: palevioletred;
+    color: white;
+    width: 200px;
+    height: 36px;
+    border: none;
+    border-radius: 10px;
+    text-align: center;
+    text-decoration: none;
+    font-family: Shanti;
+    text-align: center;
+    font-size: 1.1em;
+  }
+
+.dropbtn:hover{
+    background-color: mediumvioletred;
+    cursor: pointer
+}
+  
+  /* The container <div> */
+  .dropdown {
+    position: relative;
+    float: right;
+    width: 200px;
+    height: 30px;
+    margin: 10px;
+    font-size: 1.1em;
+    text-align: center;
+    
+  }
+  
+  /* Dropdown Content (Hidden by Default) */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background: none;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 10px;
+  }
+  
+  /* Links inside the dropdown */
+  .dropdown-content a {
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-family: Shanti;
+    font-size: 1.1em;
+    color: white;
+    width: 100px;
+    height: 30px;
+    border: none;
+  }
+
+  .dropdown:hover .dropdown-content {
+      display: block;
+    }
